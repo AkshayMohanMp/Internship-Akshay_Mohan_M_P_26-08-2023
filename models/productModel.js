@@ -4,16 +4,19 @@ const StudentSchema = mongoose.Schema(
     {
         name: {
             type: String,
-            required: [true, "Please enter a name"]
+            required: true,
         },
         rollNo: {
-            type: Number,
-            required: true
+            type: String,
+            required: true,
         },
-        classId: {
-            type: String, 
-            
-            required: true
+        Standard: {
+            type: Number,
+            required: true,
+        },
+        Division: {
+            type: String,
+            required: true,
         },
     },
     {
@@ -23,22 +26,4 @@ const StudentSchema = mongoose.Schema(
 
 const Student = mongoose.model('Student', StudentSchema);
 
-const ClassSchema = mongoose.Schema(
-    {
-        Standard: {
-            type: Number,
-            required: [true, "Please enter the Standard"]
-        },
-        Division: {
-            type: String, 
-            required: true
-        },
-    },
-    {
-        timestamps: true
-    }
-);
-
-const Class = mongoose.model('Class', ClassSchema);
-
-module.exports = { Student, Class };
+module.exports = Student;
